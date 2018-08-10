@@ -2,7 +2,8 @@
 
 #### Fonte dos dados
 
-https://webp.caixa.gov.br/empresa/EditalFGTS/003/001/fgepw001.asp
+* Tabela de Coeficientes para Recolhimento em Atraso - https://webp.caixa.gov.br/empresa/EditalFGTS/005/004/fgepw004.asp
+* https://webp.caixa.gov.br/empresa/EditalFGTS/003/001/fgepw001.asp
 
 Parametros utilizados:
 
