@@ -1,0 +1,1 @@
+celery multi start w1 -A sefip_parser -E -l info --pidfile=./temp/%n.pid --logfile=./log/celery/%n%I.log

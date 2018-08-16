@@ -1,0 +1,1 @@
+celery -A sefip_parser status

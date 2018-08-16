@@ -1,0 +1,4 @@
+[
+  "tests/test_sefip_parser.py::test_generate_url",
+  "tests/test_sefip_parser.py::test_get_factor"
+]

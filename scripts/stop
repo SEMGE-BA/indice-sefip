@@ -1,0 +1,1 @@
+celery multi stop w1 -A sefip_parser -E -l info --pidfile=./temp/%n.pid

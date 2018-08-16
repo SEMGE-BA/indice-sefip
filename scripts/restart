@@ -1,0 +1,1 @@
+celery  multi restart w1 -A sefip_parser -l info
