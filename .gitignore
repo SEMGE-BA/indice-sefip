@@ -102,3 +102,4 @@ ENV/
 
 dataset/*.csv
 dataset/*.json
+.pytest_cache
