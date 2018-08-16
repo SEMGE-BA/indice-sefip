@@ -1,10 +1,25 @@
 import time
+import logging
 
 import pandas as pd
 from datetime import datetime
 from monthdelta import monthmod
 
 from sefip_parser.tasks import get_factor
+
+logging.basicConfig(level=logging.DEBUG,
+                    filename='./log/sefip_parse.log',
+                    filemode='a')
+
+# define a Handler which writes INFO messages or higher to the sys.stderr
+console = logging.StreamHandler()
+console.setLevel(logging.INFO)
+# set a format which is simpler for console use
+formatter = logging.Formatter('%(name)-12s: %(levelname)-8s %(message)s')
+# tell the handler to use this format
+console.setFormatter(formatter)
+# add the handler to the root logger
+logging.getLogger('').addHandler(console)
 
 # competencias 01/1967 - 08/2018
 # dias para pagamento  01/02/1983 - 06/09/2018
@@ -29,6 +44,9 @@ payments = payment_dates_list
 competences = competences_list
 limit = 10
 delivered_jobs = 0
+
+logging.info('Start the job')
+
 for payment_date in payments:
     if payment_date.isoweekday() != 6 and payment_date.isoweekday() != 7:
         for competence in competences:
@@ -41,7 +59,8 @@ for payment_date in payments:
             result_dict = {
                 'task_id': res.id,
                 'delivered_jobs': delivered_jobs,
-                'data_pagamento': payment_date,
-                'competencia': competence
+                'data_pagamento': payment_date.strftime("%Y-%m-%d"),
+                'competencia': competence.strftime("%Y-%m-%d")
             }
-            print(result_dict)
+            result_str = str(result_dict)
+            logging.info(result_str)
