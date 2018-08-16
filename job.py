@@ -6,12 +6,6 @@ from monthdelta import monthmod
 
 from sefip_parser.tasks import get_factor
 
-competence = datetime(1985,4,1).strftime("%Y-%m-%d")
-payment_date = datetime(2018,8,10).strftime("%Y-%m-%d")
-res = get_factor.delay(competence, payment_date)
-
-print(res.id)
-
 # competencias 01/1967 - 08/2018
 # dias para pagamento  01/02/1983 - 06/09/2018
 
@@ -31,8 +25,8 @@ competences_list = pd.date_range(competence_start_date, periods=competence_perio
 
 # print(payment_dates_list[0:10], competences_list[0:10], payment_periods, competence_periods)
 
-payments = payment_dates_list[9:11]
-competences = competences_list[0:5]
+payments = payment_dates_list
+competences = competences_list
 limit = 10
 delivered_jobs = 0
 for payment_date in payments:
